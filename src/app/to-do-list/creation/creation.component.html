@@ -1,0 +1,11 @@
+<form>
+    <div class="row">
+        <div class="col-9">
+            <input type="text" class="form-control" placeholder="Enter wish list" name="whishList" [(ngModel)]="whishListData">
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-primary" (click)="emitEventToChild()">Add</button>
+        </div>
+    </div>
+</form>
+<app-list [inputParams]="input"></app-list>

@@ -1,0 +1,14 @@
+<div class="mt-3">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let data of lists; let i = index;">
+            <label>{{data.data}}</label>
+            <span class="list-action">
+                <ul>
+                    <li><i class="fas fa-thumbs-up" [ngClass]="(data.isCompleted) ? 'text-success':'text-danger'" (click)="toggleIsCompleted(i, data.isCompleted)"></i></li>
+                    <li><i class="fas fa-edit text-primary"></i></li>
+                    <li (click)="removeList(i)"><i class="fas fa-trash-alt text-danger"></i></li>
+                </ul>
+            </span>
+        </li>
+    </ul>
+</div>
