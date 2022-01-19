@@ -7,7 +7,7 @@ import { CreationComponent } from './to-do-list/creation/creation.component';
 const routes: Routes = [
   { 
     path: '',
-    // component: AppComponent,
+    component: CreationComponent,
     children: [
       {
         path: 'to-do-list',
