@@ -24,8 +24,11 @@ export class ListComponent implements OnInit {
   constructor() { }
   
   ngOnInit(){
-    let localStorageData:any = localStorage.getItem('lists');
-    this.lists = JSON.parse(localStorageData);
+    if(localStorage.getItem('lists')){
+      let localStorageData:any = localStorage.getItem('lists');
+      this.lists = JSON.parse(localStorageData);
+    }
+    
   }
 
   ngOnChanges(){
@@ -60,6 +63,13 @@ export class ListComponent implements OnInit {
 
   setListData(){
     localStorage.setItem('lists', JSON.stringify(this.lists));
+  }
+
+  confirmDeleteList(index: number){
+    let text = "Are you sure want to delete this:"+this.lists[index].data+" ?";
+    if (confirm(text) == true) {
+      this.removeList(index);
+    }
   }
 
   ngOnDestroy() {
